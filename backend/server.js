@@ -21,94 +21,89 @@ connectDB();
 // Init Express
 const app = express();
 
-/* ============================
+/* ==========================================
    CORS
-============================ */
+========================================== */
 
 const allowedOrigins = [
     "http://localhost:5500",
     "http://127.0.0.1:5500",
-    "https://nex-seed.vercel.app/html/login.html"
+    "https://nex-seed.vercel.app"
 ];
 
-app.use(cors({
-    origin: function(origin, callback){
+app.use(
+    cors({
+        origin: function (origin, callback) {
 
-        // mengizinkan Postman dan request tanpa origin
-        if(!origin) return callback(null,true);
+            // Mengizinkan request dari Postman atau server tanpa Origin
+            if (!origin) {
+                return callback(null, true);
+            }
 
-        if(allowedOrigins.includes(origin)){
-            return callback(null,true);
-        }
+            if (allowedOrigins.includes(origin)) {
+                return callback(null, true);
+            }
 
-        return callback(new Error("CORS tidak diizinkan"));
-    },
+            return callback(new Error("CORS tidak diizinkan."));
+        },
+        credentials: true
+    })
+);
 
-    credentials:true
-}));
-
+// Body Parser
 app.use(express.json());
 
-/* ============================
+/* ==========================================
    HOME
-============================ */
+========================================== */
 
-app.get("/", (req,res)=>{
+app.get("/", (req, res) => {
     res.send("NexSeed Backend Berjalan");
 });
 
-/* ============================
-   TEST
-============================ */
+/* ==========================================
+   TEST API
+========================================== */
 
-app.get("/api/test",(req,res)=>{
-
+app.get("/api/test", (req, res) => {
     res.json({
-
-        success:true,
-
-        message:"API OK"
-
+        success: true,
+        message: "API OK"
     });
-
 });
 
-/* ============================
+/* ==========================================
    ROUTES
-============================ */
+========================================== */
 
-app.use("/api/auth",authRoutes);
-app.use("/api/user",userRoutes);
-app.use("/api/lkpd",lkpdRoutes);
-app.use("/api/quiz",quizRoutes);
-app.use("/api/simulation",simulationRoutes);
+app.use("/api/auth", authRoutes);
+app.use("/api/user", userRoutes);
+app.use("/api/lkpd", lkpdRoutes);
+app.use("/api/quiz", quizRoutes);
+app.use("/api/simulation", simulationRoutes);
 
-/* ============================
+/* ==========================================
    404
-============================ */
+========================================== */
 
-app.use((req,res)=>{
-
+app.use((req, res) => {
     res.status(404).json({
-
-        success:false,
-
-        message:"Route tidak ditemukan"
-
+        success: false,
+        message: "Route tidak ditemukan."
     });
-
 });
 
-/* ============================
-   SERVER
-============================ */
+/* ==========================================
+   START SERVER
+========================================== */
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT,()=>{
+app.listen(PORT, () => {
 
     console.log("================================");
-    console.log(`🚀 Server berjalan di ${PORT}`);
+    console.log(`🚀 Server berjalan di port ${PORT}`);
+    console.log(`🌐 http://localhost:${PORT}`);
     console.log("================================");
 
 });
