@@ -493,7 +493,7 @@ async function saveSimulationResult(
   description,
 ) {
   try {
-    const response = await fetch(`http://localhost:5001/api/simulation/save`, {
+    const response = await fetch(`${BASE_URL}/save`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -524,7 +524,7 @@ async function saveSimulationResult(
 async function loadHistory() {
   historyContent.innerHTML = `<p class="history-loading"><i class="fa-solid fa-spinner fa-spin"></i> Memuat riwayat...</p>`;
   try {
-    const response = await fetch(`http://localhost:5001/api/simulation/history`, {
+    const response = await fetch(`${BASE_URL}/history`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

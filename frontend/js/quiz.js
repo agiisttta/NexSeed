@@ -166,7 +166,7 @@ submitBtn.addEventListener("click", async function () {
   // SIMPAN KE SERVER
   if (token) {
     try {
-      const response = await fetch(`${BASE_URL}/quiz/submit`, {
+      const response = await fetch(`${BASE_URL}/submit`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -342,7 +342,7 @@ async function loadHistory() {
   if (!token || !historyContent) return;
 
   try {
-    const response = await fetch(`${BASE_URL}/quiz/history`, {
+    const response = await fetch(`${BASE_URL}/history`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
