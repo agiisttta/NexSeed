@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Home | Simulasi Perkecambahan</title>
+
+<link rel="stylesheet" href="../css/home.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- Navbar -->
+
+<nav>
+
+    <div class="logo">
+
+        <i class="fa-solid fa-seedling"></i>
+
+        <span>NexSeed</span>
+
+    </div>
+
+    <ul>
+
+        <li class="active">
+    <a href="home.html">
+        <i class="fa-solid fa-house"></i>
+        Home
+    </a>
+</li>
+
+<li>
+    <a href="lkpd.html">
+        <i class="fa-solid fa-book"></i>
+        LKPD
+    </a>
+</li>
+
+<li>
+    <a href="simulasi.html">
+        <i class="fa-solid fa-seedling"></i>
+        Simulasi
+    </a>
+</li>
+
+<li>
+    <a href="quiz.html">
+        <i class="fa-solid fa-file-circle-question"></i>
+        Kuis Mandiri
+    </a>
+</li>
+
+    </ul>
+
+    <div class="profile">
+
+        <img src="https://ui-avatars.com/api/?name=Pengguna&background=2e7d32&color=fff&rounded=true" id="userAvatar" alt="Profile">
+
+        <span id="username">Pengguna</span>
+
+        <button
+            id="logoutBtn"
+            type="button">
+            <i class="fa-solid fa-right-from-bracket"></i>
+        </button>
+
+    </div>
+
+</nav>
+
+    <!-- Hero -->
+
+    <section class="hero">
+
+        <div class="hero-left">
+
+            <h1>
+
+                Halo,
+
+                <span id="heroUsername">
+
+                    Pengguna
+
+                </span>
+
+                👋
+
+            </h1>
+
+            <p>
+
+                Selamat datang di website simulasi perkecambahan biji.
+                Pelajari materi, lakukan simulasi,
+                dan uji pemahamanmu melalui kuis interaktif.
+
+            </p>
+
+            <button onclick="location.href='lkpd.html'">
+
+                Mulai Belajar
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </button>
+
+        </div>
+
+
+    </section>
+
+    <!-- Menu -->
+
+    <section class="menu">
+
+        <!-- Lkpd -->
+
+        <div class="menu-card">
+
+            <div class="icon">
+
+                <i class="fa-solid fa-book-open"></i>
+
+            </div>
+
+            <h2>
+
+                LKPD
+
+            </h2>
+
+            <p>
+
+                Pelajari materi perkecambahan melalui
+                lembar kerja peserta didik.
+
+            </p>
+
+            <button onclick="location.href='lkpd.html'">
+
+                Buka LKPD
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </button>
+
+        </div>
+
+        <!-- Simulasi -->
+
+        <div class="menu-card">
+
+            <div class="icon">
+
+                <i class="fa-solid fa-seedling"></i>
+
+            </div>
+
+            <h2>
+
+                Simulasi
+
+            </h2>
+
+            <p>
+
+                Atur kondisi lingkungan dan
+                amati proses perkecambahan biji.
+
+            </p>
+
+            <button onclick="location.href='simulasi.html'">
+
+                Mulai Simulasi
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </button>
+
+        </div>
+
+        <!-- Kuis -->
+
+        <div class="menu-card">
+
+            <div class="icon">
+
+                <i class="fa-solid fa-clipboard-question"></i>
+
+            </div>
+
+            <h2>
+
+                Kuis Mandiri
+
+            </h2>
+
+            <p>
+
+                Kerjakan soal dan ukur
+                pemahamanmu mengenai materi.
+
+            </p>
+
+            <button onclick="location.href='quiz.html'">
+
+                Mulai Kuis
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- Progress -->
+
+    <section class="progress-section">
+
+        <div class="progress-card">
+
+            <h2>
+
+                Progress Belajar
+
+            </h2>
+
+            <p>
+
+                Tingkatkan terus pemahamanmu!
+
+            </p>
+
+            <!-- Lkpd -->
+
+            <div class="progress-item">
+
+                <div class="title">
+
+                    <span>LKPD</span>
+
+                    <span id="lkpdPercent">
+
+                        0%
+
+                    </span>
+
+                </div>
+
+                <div class="bar">
+
+                    <div class="fill"
+
+                        id="progressLKPD"
+
+                        style="width:0%">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Simulasi -->
+
+            <div class="progress-item">
+
+                <div class="title">
+
+                    <span>Simulasi</span>
+
+                    <span id="simulationPercent">
+
+                        0%
+
+                    </span>
+
+                </div>
+
+                <div class="bar">
+
+                    <div class="fill"
+
+                        id="progressSimulation"
+
+                        style="width:0%">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Quiz -->
+
+            <div class="progress-item">
+
+                <div class="title">
+
+                    <span>Kuis</span>
+
+                    <span id="quizPercent">
+
+                        0%
+
+                    </span>
+
+                </div>
+
+                <div class="bar">
+
+                    <div class="fill"
+
+                        id="progressQuiz"
+
+                        style="width:0%">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Statistik -->
+
+        <div class="stat-card">
+
+            <div class="stat">
+
+                <i class="fa-solid fa-book"></i>
+
+                <h3 id="materiCount">
+
+                    0 / 5
+
+                </h3>
+
+                <p>
+
+                    Materi Selesai
+
+                </p>
+
+            </div>
+
+            <div class="stat">
+
+                <i class="fa-solid fa-flask"></i>
+
+                <h3 id="simulationCount">
+
+                    0
+
+                </h3>
+
+                <p>
+
+                    Simulasi
+
+                </p>
+
+            </div>
+
+            <div class="stat">
+
+                <i class="fa-solid fa-award"></i>
+
+                <h3 id="pointCount">
+
+                    0
+
+                </h3>
+
+                <p>
+
+                    Total Poin
+
+                </p>
+
+            </div>
+
+            <div class="stat">
+
+                <i class="fa-solid fa-star"></i>
+
+                <h3 id="quizCount">
+
+                    0 / 10
+
+                </h3>
+
+                <p>
+
+                    Kuis Selesai
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+       <!-- Motivation -->
+
+    <section class="motivation">
+
+        <div class="text">
+
+            <h2>
+
+                🌱 Terus Belajar!
+
+            </h2>
+
+            <p>
+
+                Semakin banyak simulasi yang kamu lakukan,
+                semakin baik pemahamanmu mengenai proses
+                perkecambahan biji. Jangan ragu untuk mencoba
+                berbagai kondisi lingkungan pada simulasi dan
+                kerjakan seluruh LKPD serta kuis untuk
+                meningkatkan hasil belajarmu.
+
+            </p>
+
+        </div>
+
+        <img src="../frontend/assets/images/tree.png"
+             alt="Ilustrasi Pohon">
+
+    </section>
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+
+            © 2026 Simulasi Perkecambahan Biji | Media Pembelajaran Interaktif
+
+        </p>
+
+    </footer>
+
+    <!-- Javascript -->
+
+    <script src="../js/main.js"></script>
+
+    <script src="../js/home.js"></script>
+
+</body>
+
+</html> 

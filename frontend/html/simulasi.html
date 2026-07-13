@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Simulasi Perkecambahan Biji | NexSeed</title>
+
+    <link rel="stylesheet" href="../css/simulasi.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+
+    <nav>
+      <div class="logo">
+        <i class="fa-solid fa-seedling"></i>
+
+        <span> NexSeed </span>
+      </div>
+
+      <ul>
+        <li>
+          <a href="home.html">
+            <i class="fa-solid fa-house"></i>
+
+            Home
+          </a>
+        </li>
+
+        <li>
+          <a href="lkpd.html">
+            <i class="fa-solid fa-book"></i>
+
+            LKPD
+          </a>
+        </li>
+
+        <li class="active">
+          <a href="simulasi.html">
+            <i class="fa-solid fa-seedling"></i>
+
+            Simulasi
+          </a>
+        </li>
+
+        <li>
+          <a href="quiz.html">
+            <i class="fa-solid fa-file-circle-question"></i>
+
+            Kuis Mandiri
+          </a>
+        </li>
+      </ul>
+
+      <div class="profile">
+        <img src="https://ui-avatars.com/api/?name=Pengguna&background=2e7d32&color=fff&rounded=true" id="userAvatar" alt="Profile User" />
+
+        <span id="username"> Pengguna </span>
+
+        <button type="button" id="logoutBtn">
+          <i class="fa-solid fa-right-from-bracket"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+
+    <section class="hero">
+      <h1>🌱 Simulasi Perkecambahan Biji</h1>
+
+      <p>
+        Atur kadar air, suhu, dan intensitas cahaya kemudian amati proses
+        pertumbuhan kecambah secara interaktif.
+      </p>
+    </section>
+
+    <!-- Main content -->
+
+    <main class="container">
+      <!-- Pengamatan -->
+
+      <section class="card">
+        <h2>
+          <i class="fa-solid fa-microscope"></i>
+
+          Pengamatan Perkecambahan
+        </h2>
+
+        <div class="info-bar">
+          <span id="lightStatus"> ☀️ Terang </span>
+
+          <span id="tempStatus"> 🌡️ Normal </span>
+        </div>
+
+        <div class="simulation-box">
+          <div class="sky">
+            <div class="sun" id="sun"></div>
+          </div>
+
+          <div class="soil"></div>
+
+          <div id="plant">
+            <div class="seed"></div>
+
+            <div class="root"></div>
+
+            <div class="stem"></div>
+
+            <div class="leaf left"></div>
+
+            <div class="leaf right"></div>
+          </div>
+        </div>
+
+        <div class="day-box">
+          Hari ke-
+
+          <span id="day"> 0 </span>
+        </div>
+
+        <div class="progress">
+          <div id="progressFill"></div>
+        </div>
+
+        <div class="condition" id="condition">🌱 Siap disimulasikan</div>
+      </section>
+
+      <!-- Kontrol -->
+
+      <section class="card">
+        <h2>
+          <i class="fa-solid fa-sliders"></i>
+
+          Pengaturan Variabel
+        </h2>
+
+        <div class="control">
+          <label>
+            💧 Air
+
+            <span id="airValue"> 50% </span>
+          </label>
+
+          <input
+            type="range"
+            id="air"
+            min="0"
+            max="100"
+            step="1"
+            value="50"
+            aria-label="Kadar Air"
+          />
+
+          <div class="label">
+            <span> Kering </span>
+
+            <span> Optimal </span>
+
+            <span> Berlebih </span>
+          </div>
+        </div>
+
+        <div class="control">
+          <label>
+            🌡️ Suhu
+
+            <span id="tempValue"> 25°C </span>
+          </label>
+
+          <input
+            type="range"
+            id="temp"
+            min="0"
+            max="50"
+            step="1"
+            value="25"
+            aria-label="Suhu"
+          />
+
+          <div class="label">
+            <span> 0°C </span>
+
+            <span> 25°C </span>
+
+            <span> 50°C </span>
+          </div>
+        </div>
+
+        <div class="control">
+          <label>
+            ☀️ Cahaya
+
+            <span id="lightValue"> 100% </span>
+          </label>
+
+          <input
+            type="range"
+            id="light"
+            min="0"
+            max="100"
+            step="1"
+            value="100"
+            aria-label="Intensitas Cahaya"
+          />
+
+          <div class="label">
+            <span> Gelap </span>
+
+            <span> Redup </span>
+
+            <span> Terang </span>
+          </div>
+        </div>
+
+        <div class="button-group">
+          <button type="button" id="startBtn">
+            <i class="fa-solid fa-play"></i>
+
+            Jalankan
+          </button>
+
+          <button type="button" id="resetBtn">
+            <i class="fa-solid fa-rotate-right"></i>
+
+            Reset
+          </button>
+        </div>
+        
+        <button type="button" id="saveBtn" class="btn-primary" style="display: none; width: 100%; margin-top: 15px; background-color: #2e7d32; color: white; padding: 12px; border-radius: 8px; border: none; font-weight: 600; cursor: pointer; justify-content: center; align-items: center; gap: 8px;">
+          <i class="fa-solid fa-save"></i>
+          Simpan Hasil
+        </button>
+      </section>
+
+      <!-- Hasil -->
+
+      <section class="card">
+        <h2>
+          <i class="fa-solid fa-chart-column"></i>
+
+          Hasil Simulasi
+        </h2>
+
+        <div class="result green">
+          <h4>🌱 Status Perkecambahan</h4>
+
+          <p id="status">Siap</p>
+        </div>
+
+        <div class="result orange">
+          <h4>🌿 Bagian Pertama yang Muncul</h4>
+
+          <p id="part">-</p>
+        </div>
+
+        <div class="result blue">
+          <h4>👀 Kondisi Kecambah</h4>
+
+          <p id="conditionText">Menunggu simulasi.</p>
+        </div>
+
+        <div class="result gray">
+          <h4>🔬 Penjelasan Ilmiah</h4>
+
+          <p id="description">Pilih kombinasi variabel lalu tekan Jalankan.</p>
+        </div>
+
+        <div class="result yellow">
+          <h4>📌 Kesimpulan</h4>
+
+          <p id="conclusion">-</p>
+        </div>
+      </section>
+
+      <!-- Riwayat simulasi -->
+
+      <div class="history-section" id="historySection">
+        <h2>
+          <i class="fa-solid fa-clock-rotate-left"></i>
+
+          Riwayat Simulasi
+        </h2>
+
+        <div id="historyContent">
+          <p class="history-loading">
+            <i class="fa-solid fa-spinner fa-spin"></i>
+            Memuat riwayat...
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>© 2026 NexSeed | Simulasi Perkecambahan Biji</p>
+    </footer>
+
+    <script src="../js/simulasi.js" defer></script>
+  </body>
+</html>

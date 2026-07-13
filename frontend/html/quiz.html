@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Kuis Mandiri | NexSeed</title>
+
+    <!-- Css -->
+    <link rel="stylesheet" href="../css/quiz.css" />
+
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+
+    <nav>
+      <div class="logo">
+        <i class="fa-solid fa-seedling"></i>
+
+        <span>NexSeed</span>
+      </div>
+
+      <ul>
+        <li>
+          <a href="home.html">
+            <i class="fa-solid fa-house"></i>
+
+            Home
+          </a>
+        </li>
+
+        <li>
+          <a href="lkpd.html">
+            <i class="fa-solid fa-book"></i>
+
+            LKPD
+          </a>
+        </li>
+
+        <li>
+          <a href="simulasi.html">
+            <i class="fa-solid fa-seedling"></i>
+
+            Simulasi
+          </a>
+        </li>
+
+        <li class="active">
+          <a href="quiz.html">
+            <i class="fa-solid fa-file-circle-question"></i>
+
+            Kuis Mandiri
+          </a>
+        </li>
+      </ul>
+
+      <div class="profile">
+        <img src="https://ui-avatars.com/api/?name=Pengguna&background=2e7d32&color=fff&rounded=true" id="userAvatar" alt="Profile" />
+
+        <span id="username"> Pengguna </span>
+
+        <button type="button" id="logoutBtn">
+          <i class="fa-solid fa-right-from-bracket"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+
+    <section class="hero">
+      <i class="fa-solid fa-leaf leaf leaf1"></i>
+      <i class="fa-solid fa-seedling leaf leaf2"></i>
+      <i class="fa-solid fa-leaf leaf leaf3"></i>
+
+      <h1>
+        <i class="fa-solid fa-graduation-cap"></i>
+        Kuis Mandiri Perkecambahan Biji
+      </h1>
+
+      <p>
+        Kerjakan seluruh soal berikut untuk mengukur pemahamanmu mengenai
+        faktor-faktor yang mempengaruhi proses perkecambahan biji.
+      </p>
+    </section>
+
+    <!-- Container -->
+
+    <main class="quiz-container">
+      <!--  -->
+      <!-- Informasi -->
+      <!--  -->
+
+      <section class="info-card">
+        <div class="info-item">
+          <i class="fa-solid fa-list-check"></i>
+
+          <div>
+            <h4>Jumlah Soal</h4>
+
+            <p>10 Soal</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <i class="fa-solid fa-star"></i>
+
+          <div>
+            <h4>Skor Maksimum</h4>
+
+            <p>100</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <i class="fa-solid fa-circle-info"></i>
+
+          <div>
+            <h4>Petunjuk</h4>
+
+            <p>Pilih satu jawaban yang paling benar.</p>
+          </div>
+        </div>
+      </section>
+
+      <!--  -->
+      <!-- Progress -->
+      <!--  -->
+
+      <section class="progress-card">
+        <div class="progress-title">
+          <span> Progress Pengerjaan </span>
+
+          <span id="progressText"> 0 / 10 </span>
+        </div>
+
+        <div class="progress-bar">
+          <div id="progressFill"></div>
+        </div>
+      </section>
+
+      <!--  -->
+      <!-- Quiz -->
+      <!--  -->
+
+      <section class="quiz-card">
+        <h2>
+          <i class="fa-solid fa-pencil"></i>
+
+          Soal Pilihan Ganda
+        </h2>
+
+        <!-- Soal 1 -->
+
+        <div class="question">
+          <h3>
+            1. Faktor utama yang pertama kali dibutuhkan biji untuk memulai
+            proses perkecambahan adalah ....
+          </h3>
+
+          <label>
+            <input type="radio" name="q1" value="A" />
+
+            Cahaya
+          </label>
+
+          <label>
+            <input type="radio" name="q1" value="B" />
+
+            Air
+          </label>
+
+          <label>
+            <input type="radio" name="q1" value="C" />
+
+            Pupuk
+          </label>
+
+          <label>
+            <input type="radio" name="q1" value="D" />
+
+            Angin
+          </label>
+        </div>
+
+        <!-- Soal 2 -->
+
+        <div class="question">
+          <h3>
+            2. Proses penyerapan air oleh biji pada awal perkecambahan disebut
+            ....
+          </h3>
+
+          <label>
+            <input type="radio" name="q2" value="A" />
+
+            Respirasi
+          </label>
+
+          <label>
+            <input type="radio" name="q2" value="B" />
+
+            Fotosintesis
+          </label>
+
+          <label>
+            <input type="radio" name="q2" value="C" />
+
+            Imbibisi
+          </label>
+
+          <label>
+            <input type="radio" name="q2" value="D" />
+
+            Evaporasi
+          </label>
+        </div>
+
+        <!-- Soal 3 -->
+
+        <div class="question">
+          <h3>
+            3. Bagian pertama yang muncul saat biji mulai berkecambah adalah
+            ....
+          </h3>
+
+          <label>
+            <input type="radio" name="q3" value="A" />
+
+            Daun
+          </label>
+
+          <label>
+            <input type="radio" name="q3" value="B" />
+
+            Batang
+          </label>
+
+          <label>
+            <input type="radio" name="q3" value="C" />
+
+            Radikula
+          </label>
+
+          <label>
+            <input type="radio" name="q3" value="D" />
+
+            Bunga
+          </label>
+        </div>
+
+        <!-- Soal 4 -->
+
+        <div class="question">
+          <h3>
+            4. Suhu yang paling optimal untuk perkecambahan pada simulasi
+            NexSeed adalah ....
+          </h3>
+
+          <label>
+            <input type="radio" name="q4" value="A" />
+
+            0°C
+          </label>
+
+          <label>
+            <input type="radio" name="q4" value="B" />
+
+            15°C
+          </label>
+
+          <label>
+            <input type="radio" name="q4" value="C" />
+
+            25°C
+          </label>
+
+          <label>
+            <input type="radio" name="q4" value="D" />
+
+            50°C
+          </label>
+        </div>
+
+        <!-- Soal 5 -->
+
+        <div class="question">
+          <h3>
+            5. Jika biji memperoleh air yang terlalu banyak, kemungkinan yang
+            terjadi adalah ....
+          </h3>
+
+          <label>
+            <input type="radio" name="q5" value="A" />
+
+            Tumbuh lebih cepat
+          </label>
+
+          <label>
+            <input type="radio" name="q5" value="B" />
+
+            Membusuk
+          </label>
+
+          <label>
+            <input type="radio" name="q5" value="C" />
+
+            Menjadi dorman
+          </label>
+
+          <label>
+            <input type="radio" name="q5" value="D" />
+
+            Langsung berbunga
+          </label>
+        </div>
+
+        <!-- Soal 6 -->
+
+        <div class="question">
+          <h3>6. Kecambah yang tumbuh di tempat gelap akan mengalami ....</h3>
+
+          <label>
+            <input type="radio" name="q6" value="A" />
+
+            Fotosintesis maksimal
+          </label>
+
+          <label>
+            <input type="radio" name="q6" value="B" />
+
+            Etiolasi
+          </label>
+
+          <label>
+            <input type="radio" name="q6" value="C" />
+
+            Pembungaan
+          </label>
+
+          <label>
+            <input type="radio" name="q6" value="D" />
+
+            Dormansi
+          </label>
+        </div>
+
+        <!-- Soal 7 -->
+
+        <div class="question">
+          <h3>7. Fungsi utama radikula pada kecambah adalah ....</h3>
+
+          <label>
+            <input type="radio" name="q7" value="A" />
+
+            Menyerap air dan mineral
+          </label>
+
+          <label>
+            <input type="radio" name="q7" value="B" />
+
+            Tempat fotosintesis
+          </label>
+
+          <label>
+            <input type="radio" name="q7" value="C" />
+
+            Menghasilkan bunga
+          </label>
+
+          <label>
+            <input type="radio" name="q7" value="D" />
+
+            Menyimpan biji
+          </label>
+        </div>
+
+        <!-- Soal 8 -->
+
+        <div class="question">
+          <h3>
+            8. Sebuah kecambah tumbuh dengan batang sangat panjang dan tipis,
+            berwarna pucat kekuningan, serta daun kecil yang belum berkembang
+            sempurna. Kecambah tersebut mengalami ....
+          </h3>
+
+          <p></p>
+
+          <label>
+            <input type="radio" name="q8" value="A" />
+
+            Pertumbuhan optimal
+          </label>
+
+          <label>
+            <input type="radio" name="q8" value="B" />
+
+            Etiolasi
+          </label>
+
+          <label>
+            <input type="radio" name="q8" value="C" />
+
+            Pembusukan
+          </label>
+
+          <label>
+            <input type="radio" name="q8" value="D" />
+
+            Dormansi
+          </label>
+        </div>
+
+        <!-- Soal 9 -->
+
+        <div class="question">
+          <h3>9. Cahaya berperan penting dalam ....</h3>
+
+          <label>
+            <input type="radio" name="q9" value="A" />
+
+            Mengaktifkan imbibisi
+          </label>
+
+          <label>
+            <input type="radio" name="q9" value="B" />
+
+            Pembentukan klorofil
+          </label>
+
+          <label>
+            <input type="radio" name="q9" value="C" />
+
+            Memecahkan kulit biji
+          </label>
+
+          <label>
+            <input type="radio" name="q9" value="D" />
+
+            Membentuk akar
+          </label>
+        </div>
+
+        <!-- Soal 10 -->
+
+        <div class="question">
+          <h3>
+            10. Kombinasi kondisi terbaik untuk menghasilkan perkecambahan yang
+            sehat adalah ....
+          </h3>
+
+          <label>
+            <input type="radio" name="q10" value="A" />
+
+            Air 0%, Suhu 0°C, Gelap
+          </label>
+
+          <label>
+            <input type="radio" name="q10" value="B" />
+
+            Air 100%, Suhu 50°C, Terang
+          </label>
+
+          <label>
+            <input type="radio" name="q10" value="C" />
+
+            Air Optimal, Suhu 25°C, Cahaya Terang
+          </label>
+
+          <label>
+            <input type="radio" name="q10" value="D" />
+
+            Air Optimal, Suhu 50°C, Gelap
+          </label>
+        </div>
+
+        <!-- Hasil kuis -->
+
+        <div class="quiz-action">
+          <button type="button" id="submitQuiz">
+            <i class="fa-solid fa-check"></i>
+
+            Selesai
+          </button>
+
+          <button type="button" id="resetQuiz">
+            <i class="fa-solid fa-rotate-right"></i>
+
+            Ulangi Kuis
+          </button>
+        </div>
+
+        <!-- Hasil -->
+
+        <div class="result-card" id="resultCard">
+          <h2>
+            <i class="fa-solid fa-award"></i>
+
+            Hasil Kuis
+          </h2>
+
+          <div class="score-circle">
+            <span id="score"> 0 </span>
+
+            <small>/100</small>
+          </div>
+
+          <h3 id="grade">-</h3>
+
+          <p id="message">Kerjakan seluruh soal terlebih dahulu.</p>
+        </div>
+
+        <!-- Pembahasan -->
+
+        <div class="discussion">
+          <h2>
+            <i class="fa-solid fa-book-open"></i>
+
+            Pembahasan Jawaban
+          </h2>
+
+          <div id="discussionContent">
+            Pembahasan akan muncul setelah tombol
+            <b>Selesai</b> ditekan.
+          </div>
+        </div>
+
+        <!-- Riwayat kuis -->
+
+        <div class="history-section" id="historySection">
+          <h2>
+            <i class="fa-solid fa-clock-rotate-left"></i>
+
+            Riwayat Kuis
+          </h2>
+
+          <div id="historyContent">
+            <p class="history-loading">
+              <i class="fa-solid fa-spinner fa-spin"></i>
+              Memuat riwayat...
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+
+    <footer>
+      <p>© 2026 NexSeed | Kuis Mandiri Perkecambahan Biji</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/quiz.js"></script>
+  </body>
+</html>

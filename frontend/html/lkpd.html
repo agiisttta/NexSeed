@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>LKPD | NexSeed</title>
+
+    <!-- Css -->
+    <link
+        rel="stylesheet"
+        href="../css/lkpd.css">
+
+    <!-- Google font -->
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- Navbar -->
+
+<nav>
+
+    <div class="logo">
+
+        <i class="fa-solid fa-seedling"></i>
+
+        <span>NexSeed</span>
+
+    </div>
+
+    <ul>
+
+        <li>
+
+            <a href="home.html">
+
+                <i class="fa-solid fa-house"></i>
+
+                Home
+
+            </a>
+
+        </li>
+
+        <li class="active">
+
+            <a href="lkpd.html">
+
+                <i class="fa-solid fa-book"></i>
+
+                LKPD
+
+            </a>
+
+        </li>
+
+        <li>
+
+            <a href="simulasi.html">
+
+                <i class="fa-solid fa-seedling"></i>
+
+                Simulasi
+
+            </a>
+
+        </li>
+
+        <li>
+
+            <a href="quiz.html">
+
+                <i class="fa-solid fa-file-circle-question"></i>
+
+                Kuis Mandiri
+
+            </a>
+
+        </li>
+
+    </ul>
+
+    <div class="profile">
+
+        <img
+            src="https://ui-avatars.com/api/?name=Pengguna&background=2e7d32&color=fff&rounded=true"
+            id="userAvatar"
+            alt="Profile">
+
+        <span id="username">
+
+            Pengguna
+
+        </span>
+
+        <button
+            id="logoutBtn"
+            class="logout-btn"
+            type="button">
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+        </button>
+
+    </div>
+
+</nav>
+
+<!-- Hero -->
+
+<section class="hero">
+
+    <div class="hero-left">
+
+        <span class="badge">
+
+            📖 Lembar Kerja Peserta Didik
+
+        </span>
+
+        <h1>
+
+            LKPD Interaktif
+            <br>
+            Simulasi Perkecambahan Biji
+
+        </h1>
+
+        <p>
+
+            LKPD ini membantu peserta didik memahami proses
+            perkecambahan biji melalui kegiatan mengamati,
+            melakukan simulasi,
+            mencatat hasil pengamatan,
+            menganalisis data,
+            dan menarik kesimpulan.
+
+        </p>
+
+        <button
+            type="button"
+            onclick="document.getElementById('identitas').scrollIntoView({behavior:'smooth'})">
+
+            Mulai Mengerjakan
+
+            <i class="fa-solid fa-arrow-down"></i>
+
+        </button>
+
+    </div>
+
+</section>
+
+<!-- Content -->
+
+<main class="content">
+
+<form id="lkpdForm">
+
+<!-- Identitas peserta didik -->
+
+<section
+    class="card"
+    id="identitas">
+
+    <h2>
+
+        <i class="fa-solid fa-user"></i>
+
+        Identitas Peserta Didik
+
+    </h2>
+
+    <p>
+
+        Isilah identitas berikut sebelum mengerjakan LKPD.
+
+    </p>
+
+    <div class="form-grid">
+
+        <div class="form-group">
+
+            <label for="nama">
+
+                Nama Lengkap
+
+            </label>
+
+            <input
+                type="text"
+                id="nama"
+                name="nama"
+                placeholder="Masukkan nama lengkap">
+
+        </div>
+
+        <div class="form-group">
+
+            <label for="kelas">
+
+                Kelas
+
+            </label>
+
+            <input
+                type="text"
+                id="kelas"
+                name="kelas"
+                placeholder="Contoh : VIII A">
+
+        </div>
+
+        <div class="form-group">
+
+            <label for="kelompok">
+
+                Kelompok
+
+            </label>
+
+            <input
+                type="text"
+                id="kelompok"
+                name="kelompok"
+                placeholder="Masukkan kelompok">
+
+        </div>
+
+        <div class="form-group">
+
+            <label for="tanggal">
+
+                Tanggal
+
+            </label>
+
+            <input
+                type="date"
+                id="tanggal"
+                name="tanggal">
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Tujuan pembelajaran -->
+
+<section class="card">
+
+    <h2>
+
+        <i class="fa-solid fa-bullseye"></i>
+
+        Tujuan Pembelajaran
+
+    </h2>
+
+    <ol>
+
+        <li>Mengidentifikasi struktur penyusun biji.</li>
+
+        <li>Menjelaskan fungsi setiap bagian penyusun biji.</li>
+
+        <li>Menjelaskan proses perkecambahan tumbuhan.</li>
+
+        <li>Menganalisis pengaruh air, suhu, dan cahaya terhadap proses perkecambahan.</li>
+
+        <li>Menarik kesimpulan berdasarkan hasil simulasi yang dilakukan.</li>
+
+    </ol>
+
+</section>
+
+<!-- Petunjuk pengerjaan -->
+
+<section class="card">
+
+    <h2>
+
+        <i class="fa-solid fa-list-check"></i>
+
+        Petunjuk Pengerjaan
+
+    </h2>
+
+    <ol>
+
+        <li>Bacalah seluruh petunjuk dengan teliti.</li>
+
+        <li>Isilah identitas peserta didik terlebih dahulu.</li>
+
+        <li>Amati video pembelajaran yang tersedia.</li>
+
+        <li>Lakukan simulasi perkecambahan biji.</li>
+
+        <li>Catat hasil pengamatan pada tabel yang tersedia.</li>
+
+        <li>Jawablah seluruh pertanyaan sesuai hasil pengamatan.</li>
+
+        <li>Simpan jawaban sebelum keluar dari halaman.</li>
+
+    </ol>
+
+</section>
+
+<!-- Orientasi -->
+
+<section class="card">
+
+    <h2>
+
+        <i class="fa-solid fa-video"></i>
+
+        Orientasi
+
+    </h2>
+
+    <p>
+
+        Amatilah video berikut mengenai struktur biji
+        dan proses perkecambahan tumbuhan.
+
+    </p>
+
+    <div class="video-container">
+
+        <iframe
+            src="https://www.youtube.com/embed/sHyxLbu4nSE"
+            title="Video Pembelajaran"
+            allowfullscreen>
+
+        </iframe>
+
+    </div>
+
+</section>
+
+<!-- Kegiatan 1 -->
+
+<section class="card">
+
+    <h2>
+
+        <i class="fa-solid fa-lightbulb"></i>
+
+        Kegiatan 1 - Merumuskan Masalah
+
+    </h2>
+
+    <p>
+
+        Setelah mengamati video, jawablah pertanyaan berikut.
+
+    </p>
+
+    <div class="question">
+
+        <label for="rumusan1">
+
+            1. Bagaimana pengaruh air terhadap proses perkecambahan biji?
+
+        </label>
+
+        <textarea
+            id="rumusan1"
+            name="rumusan1"
+            rows="5"
+            placeholder="Tuliskan jawabanmu..."></textarea>
+
+    </div>
+
+    <div class="question">
+
+        <label for="rumusan2">
+
+            2. Bagaimana pengaruh suhu terhadap proses perkecambahan biji?
+
+        </label>
+
+        <textarea
+            id="rumusan2"
+            name="rumusan2"
+            rows="5"
+            placeholder="Tuliskan jawabanmu..."></textarea>
+
+    </div>
+
+    <div class="question">
+
+        <label for="rumusan3">
+
+            3. Bagaimana pengaruh cahaya terhadap proses perkecambahan biji?
+
+        </label>
+
+        <textarea
+            id="rumusan3"
+            name="rumusan3"
+            rows="5"
+            placeholder="Tuliskan jawabanmu..."></textarea>
+
+    </div>
+
+</section>
+
+<!-- Kegiatan 2 -->
+
+<section class="card">
+
+    <h2>
+
+        <i class="fa-solid fa-flask"></i>
+
+        Kegiatan 2 - Menyusun Hipotesis
+
+    </h2>
+
+    <p>
+
+        Tuliskan hipotesis berdasarkan rumusan masalah yang telah dibuat.
+
+    </p>
+
+    <div class="question">
+
+        <label for="hipotesis1">
+
+            Hipotesis 1
+
+        </label>
+
+        <textarea
+            id="hipotesis1"
+            name="hipotesis1"
+            rows="4"
+            placeholder="Tuliskan hipotesismu..."></textarea>
+
+    </div>
+
+    <div class="question">
+
+        <label for="hipotesis2">
+
+            Hipotesis 2
+
+        </label>
+
+        <textarea
+            id="hipotesis2"
+            name="hipotesis2"
+            rows="4"
+            placeholder="Tuliskan hipotesismu..."></textarea>
+
+    </div>
+
+    <div class="question">
+
+        <label for="hipotesis3">
+
+            Hipotesis 3
+
+        </label>
+
+        <textarea
+            id="hipotesis3"
+            name="hipotesis3"
+            rows="4"
+            placeholder="Tuliskan hipotesismu..."></textarea>
+
+    </div>
+
+</section>
+
+<!-- Kegiatan 3 -->
+
+<section class="card">
+
+    <h2>
+
+        <i class="fa-solid fa-seedling"></i>
+
+        Kegiatan 3 - Mengumpulkan Data
+
+    </h2>
+
+    <p>
+
+        Jalankan simulasi perkecambahan biji menggunakan berbagai kombinasi air, suhu, dan cahaya. Catat hasil pengamatan pada tabel berikut.
+
+    </p>
+
+    <a
+        href="simulasi.html"
+        class="simulation-btn">
+
+        <i class="fa-solid fa-seedling"></i>
+
+        Buka Halaman Simulasi
+
+    </a>
+
+</section>
+
+<!-- Hasil pengamatan -->
+
+<section class="card">
+
+    <h2>
+
+        <i class="fa-solid fa-clipboard-list"></i>
+
+        Hasil Pengamatan
+
+    </h2>
+
+    <p>
+
+        Isilah tabel berikut berdasarkan hasil simulasi yang telah dilakukan.
+
+    </p>
+
+    <div class="table-wrapper">
+
+        <table class="observation-table">
+
+            <thead>
+
+                <tr>
+
+                    <th>No</th>
+                    <th>Air (%)</th>
+                    <th>Suhu (°C)</th>
+                    <th>Cahaya (%)</th>
+                    <th>Hasil Pengamatan</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+
+                    <td>1</td>
+
+                    <td><input type="text" id="air1" name="air1"></td>
+
+                    <td><input type="text" id="suhu1" name="suhu1"></td>
+
+                    <td><input type="text" id="cahaya1" name="cahaya1"></td>
+
+                    <td>
+
+                        <textarea
+                            id="hasil1"
+                            name="hasil1"
+                            rows="3"></textarea>
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>2</td>
+
+                    <td><input type="text" id="air2" name="air2"></td>
+
+                    <td><input type="text" id="suhu2" name="suhu2"></td>
+
+                    <td><input type="text" id="cahaya2" name="cahaya2"></td>
+
+                    <td>
+
+                        <textarea
+                            id="hasil2"
+                            name="hasil2"
+                            rows="3"></textarea>
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>3</td>
+
+                    <td><input type="text" id="air3" name="air3"></td>
+
+                    <td><input type="text" id="suhu3" name="suhu3"></td>
+
+                    <td><input type="text" id="cahaya3" name="cahaya3"></td>
+
+                    <td>
+
+                        <textarea
+                            id="hasil3"
+                            name="hasil3"
+                            rows="3"></textarea>
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>4</td>
+
+                    <td><input type="text" id="air4" name="air4"></td>
+
+                    <td><input type="text" id="suhu4" name="suhu4"></td>
+
+                    <td><input type="text" id="cahaya4" name="cahaya4"></td>
+
+                    <td>
+
+                        <textarea
+                            id="hasil4"
+                            name="hasil4"
+                            rows="3"></textarea>
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>5</td>
+
+                    <td><input type="text" id="air5" name="air5"></td>
+
+                    <td><input type="text" id="suhu5" name="suhu5"></td>
+
+                    <td><input type="text" id="cahaya5" name="cahaya5"></td>
+
+                    <td>
+
+                        <textarea
+                            id="hasil5"
+                            name="hasil5"
+                            rows="3"></textarea>
+
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+<!-- Struktur biji -->
+
+<section class="card">
+
+    <h2>
+
+        <i class="fa-solid fa-seedling"></i>
+
+        Struktur Biji
+
+    </h2>
+
+    <p>
+
+        Amatilah gambar struktur biji berikut kemudian tuliskan nama
+        setiap bagian sesuai huruf yang ditunjukkan.
+
+    </p>
+
+    <div class="seed-image">
+
+        <img
+            src="../asset/images/struktur-biji.png"
+            alt="Struktur Biji"
+            class="seed-img">
+
+    </div>
+
+    <div class="form-grid">
+
+        <div class="form-group">
+
+            <label for="strukturA">
+
+                Bagian A
+
+            </label>
+
+            <input
+                type="text"
+                id="strukturA"
+                name="strukturA"
+                placeholder="Masukkan nama bagian">
+
+        </div>
+
+        <div class="form-group">
+
+            <label for="strukturB">
+
+                Bagian B
+
+            </label>
+
+            <input
+                type="text"
+                id="strukturB"
+                name="strukturB"
+                placeholder="Masukkan nama bagian">
+
+        </div>
+
+        <div class="form-group">
+
+            <label for="strukturC">
+
+                Bagian C
+
+            </label>
+
+            <input
+                type="text"
+                id="strukturC"
+                name="strukturC"
+                placeholder="Masukkan nama bagian">
+
+        </div>
+
+        <div class="form-group">
+
+            <label for="strukturD">
+
+                Bagian D
+
+            </label>
+
+            <input
+                type="text"
+                id="strukturD"
+                name="strukturD"
+                placeholder="Masukkan nama bagian">
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Fungsi struktur biji -->
+
+<section class="card">
+
+    <h2>
+
+        <i class="fa-solid fa-table-list"></i>
+
+        Fungsi Struktur Biji
+
+    </h2>
+
+    <p>
+
+        Lengkapilah tabel berikut berdasarkan hasil pengamatanmu.
+
+    </p>
+
+    <div class="table-wrapper">
+
+        <table class="seed-function-table">
+
+            <thead>
+
+                <tr>
+
+                    <th>No</th>
+
+                    <th>Bagian Biji</th>
+
+                    <th>Fungsi</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+
+                    <td>1</td>
+
+                    <td>
+
+                        <input
+                            type="text"
+                            id="namaBagian1"
+                            name="namaBagian1"
+                            placeholder="Nama bagian">
+
+                    </td>
+
+                    <td>
+
+                        <textarea
+                            id="fungsi1"
+                            name="fungsi1"
+                            rows="3"
+                            placeholder="Tuliskan fungsi..."></textarea>
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>2</td>
+
+                    <td>
+
+                        <input
+                            type="text"
+                            id="namaBagian2"
+                            name="namaBagian2"
+                            placeholder="Nama bagian">
+
+                    </td>
+
+                    <td>
+
+                        <textarea
+                            id="fungsi2"
+                            name="fungsi2"
+                            rows="3"
+                            placeholder="Tuliskan fungsi..."></textarea>
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>3</td>
+
+                    <td>
+
+                        <input
+                            type="text"
+                            id="namaBagian3"
+                            name="namaBagian3"
+                            placeholder="Nama bagian">
+
+                    </td>
+
+                    <td>
+
+                        <textarea
+                            id="fungsi3"
+                            name="fungsi3"
+                            rows="3"
+                            placeholder="Tuliskan fungsi..."></textarea>
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>4</td>
+
+                    <td>
+
+                        <input
+                            type="text"
+                            id="namaBagian4"
+                            name="namaBagian4"
+                            placeholder="Nama bagian">
+
+                    </td>
+
+                    <td>
+
+                        <textarea
+                            id="fungsi4"
+                            name="fungsi4"
+                            rows="3"
+                            placeholder="Tuliskan fungsi..."></textarea>
+
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+<!-- Aktivitas cek fakta digital -->
+
+<section class="card">
+
+    <h2>
+
+        <i class="fa-solid fa-globe"></i>
+
+        Aktivitas Cek Fakta Digital
+
+    </h2>
+
+    <p>
+
+        Carilah minimal tiga sumber terpercaya (jurnal, buku,
+        atau situs resmi .ac.id maupun .go.id) yang membahas
+        struktur biji atau proses perkecambahan.
+
+    </p>
+
+    <div class="reference-box">
+
+        <h3>
+
+            Sumber 1
+
+        </h3>
+
+        <input
+            type="text"
+            id="judul1"
+            name="judul1"
+            placeholder="Judul Artikel">
+
+        <input
+            type="url"
+            id="link1"
+            name="link1"
+            placeholder="https://">
+
+    </div>
+
+    <div class="reference-box">
+
+        <h3>
+
+            Sumber 2
+
+        </h3>
+
+        <input
+            type="text"
+            id="judul2"
+            name="judul2"
+            placeholder="Judul Artikel">
+
+        <input
+            type="url"
+            id="link2"
+            name="link2"
+            placeholder="https://">
+
+    </div>
+
+    <div class="reference-box">
+
+        <h3>
+
+            Sumber 3
+
+        </h3>
+
+        <input
+            type="text"
+            id="judul3"
+            name="judul3"
+            placeholder="Judul Artikel">
+
+        <input
+            type="url"
+            id="link3"
+            name="link3"
+            placeholder="https://">
+
+    </div>
+
+</section>
+
+<!-- Pertanyaan analisis -->
+
+<section class="card">
+
+    <h2>
+
+        <i class="fa-solid fa-magnifying-glass-chart"></i>
+
+        Pertanyaan Analisis
+
+    </h2>
+
+    <div class="question">
+
+        <label for="analisis1">
+
+            1. Apa faktor utama yang mempengaruhi keberhasilan proses perkecambahan biji?
+
+        </label>
+
+        <textarea
+            id="analisis1"
+            name="analisis1"
+            rows="5"
+            placeholder="Tuliskan jawabanmu..."></textarea>
+
+    </div>
+
+    <div class="question">
+
+        <label for="analisis2">
+
+            2. Mengapa radikula menjadi bagian pertama yang muncul saat proses perkecambahan?
+
+        </label>
+
+        <textarea
+            id="analisis2"
+            name="analisis2"
+            rows="5"
+            placeholder="Tuliskan jawabanmu..."></textarea>
+
+    </div>
+
+    <div class="question">
+
+        <label for="analisis3">
+
+            3. Berdasarkan hasil simulasi yang telah dilakukan, bagaimana hubungan antara air, suhu, dan cahaya terhadap keberhasilan perkecambahan?
+
+        </label>
+
+        <textarea
+            id="analisis3"
+            name="analisis3"
+            rows="5"
+            placeholder="Tuliskan jawabanmu..."></textarea>
+
+    </div>
+
+</section>
+
+<!-- Kesimpulan -->
+
+<section class="card">
+
+    <h2>
+
+        <i class="fa-solid fa-file-lines"></i>
+
+        Kesimpulan
+
+    </h2>
+
+    <p>
+
+        Tuliskan kesimpulan berdasarkan seluruh kegiatan yang telah dilakukan.
+
+    </p>
+
+    <textarea
+        id="kesimpulan"
+        name="kesimpulan"
+        rows="8"
+        placeholder="Tuliskan kesimpulanmu..."></textarea>
+
+</section>
+
+<!-- Refleksi -->
+
+<section class="card">
+
+    <h2>
+
+        <i class="fa-solid fa-face-smile"></i>
+
+        Refleksi Peserta Didik
+
+    </h2>
+
+    <p>
+
+        Berilah tanda centang sesuai dengan pengalaman belajarmu.
+
+    </p>
+
+    <div class="reflection">
+
+        <label>
+
+            <input
+                type="checkbox"
+                id="refleksi1"
+                name="refleksi1">
+
+            Saya dapat mengidentifikasi struktur penyusun biji.
+
+        </label>
+
+        <label>
+
+            <input
+                type="checkbox"
+                id="refleksi2"
+                name="refleksi2">
+
+            Saya memahami fungsi setiap bagian penyusun biji.
+
+        </label>
+
+        <label>
+
+            <input
+                type="checkbox"
+                id="refleksi3"
+                name="refleksi3">
+
+            Saya memahami proses perkecambahan.
+
+        </label>
+
+        <label>
+
+            <input
+                type="checkbox"
+                id="refleksi4"
+                name="refleksi4">
+
+            Saya memahami pengaruh air terhadap perkecambahan.
+
+        </label>
+
+        <label>
+
+            <input
+                type="checkbox"
+                id="refleksi5"
+                name="refleksi5">
+
+            Saya memahami pengaruh suhu terhadap perkecambahan.
+
+        </label>
+
+        <label>
+
+            <input
+                type="checkbox"
+                id="refleksi6"
+                name="refleksi6">
+
+            Saya memahami pengaruh cahaya terhadap perkecambahan.
+
+        </label>
+
+        <label>
+
+            <input
+                type="checkbox"
+                id="refleksi7"
+                name="refleksi7">
+
+            Saya mampu menggunakan simulasi untuk melakukan percobaan.
+
+        </label>
+
+    </div>
+
+    <div class="question">
+
+        <label for="halMenarik">
+
+            Hal yang paling menarik dari pembelajaran hari ini
+
+        </label>
+
+        <textarea
+            id="halMenarik"
+            name="halMenarik"
+            rows="5"
+            placeholder="Tuliskan pendapatmu..."></textarea>
+
+    </div>
+
+</section>
+
+<!-- Penutup -->
+
+<section class="card success-card">
+
+    <div class="success-icon">
+
+        🎉
+
+    </div>
+
+    <h2>
+
+        Selamat!
+
+    </h2>
+
+    <p>
+
+        Kamu telah menyelesaikan seluruh kegiatan pada LKPD Interaktif.
+
+    </p>
+
+    <h3>
+
+        🌱 Terus semangat belajar dan bereksperimen!
+
+    </h3>
+
+</section>
+
+<!-- Button -->
+
+<div class="button-group">
+
+    <button
+        type="button"
+        id="saveBtn"
+        class="save-btn">
+
+        <i class="fa-solid fa-floppy-disk"></i>
+
+        Simpan Jawaban
+
+    </button>
+
+</div>
+
+</form>
+
+</main>
+
+<!-- Footer -->
+
+<footer>
+
+    <p>
+
+        © 2026 NexSeed | Media Pembelajaran Interaktif Simulasi Perkecambahan Biji
+
+    </p>
+
+</footer>
+
+<!-- Javascript -->
+
+<script src="../js/main.js"></script>
+
+<script src="../js/lkpd.js"></script>
+
+</body>
+
+</html>
