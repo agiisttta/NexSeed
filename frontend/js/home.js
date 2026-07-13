@@ -37,10 +37,9 @@ async function checkLogin() {
     try {
 
         const response = await fetch(
-            "http://localhost:5001/api/user/profile",
+            `${CONFIG.API_URL}/api/user/profile`,
             {
                 method: "GET",
-
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
