@@ -77,7 +77,7 @@ function initLogin() {
         try {
 
             const response = await fetch(
-                `${CONFIG.API_URL}/api/auth/login`
+                `${CONFIG.API_URL}/api/auth/login`,
                 {
 
                     method: "POST",
