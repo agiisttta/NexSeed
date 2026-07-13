@@ -113,7 +113,7 @@ function initRegister() {
         try {
 
             const response = await fetch(
-                "http://localhost:5001/api/auth/register",
+                `${CONFIG.API_URL}/api/auth/register`,
                 {
 
                     method: "POST",

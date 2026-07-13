@@ -5,7 +5,7 @@
 
 // Element
 
-const BASE_URL = "http://localhost:3000/api";
+const BASE_URL = `${CONFIG.API_URL}/api/simulation`;
 
 const air = document.getElementById("air");
 const temp = document.getElementById("temp");

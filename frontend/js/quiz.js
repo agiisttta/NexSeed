@@ -1,6 +1,6 @@
 // Quiz nexseed
 
-const BASE_URL = "http://localhost:5001/api";
+const BASE_URL = `${CONFIG.API_URL}/api/quiz`;
 
 let userId = localStorage.getItem("userId");
 let token = localStorage.getItem("token");

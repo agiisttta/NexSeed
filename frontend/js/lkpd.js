@@ -4,7 +4,7 @@
    MongoDB Version
 ===================================================== */
 
-const API_URL = "http://localhost:5001/api/lkpd";
+const API_URL = `${CONFIG.API_URL}/api/lkpd`;
 
 let token = localStorage.getItem("token");
 let currentLkpd = null;
