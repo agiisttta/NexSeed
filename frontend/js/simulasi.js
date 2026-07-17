@@ -646,9 +646,9 @@ async function saveSimulationResult(
    LOAD RIWAYAT
 ===================================================== */
 
-async function loadHistory(){
+async function loadHistory() {
 
-    historyContent.innerHTML=`
+    historyContent.innerHTML = `
 
         <p class="history-loading">
 
@@ -660,17 +660,17 @@ async function loadHistory(){
 
     `;
 
-    try{
+    try {
 
-        const response=await fetch(
+        const response = await fetch(
 
             `${BASE_URL}/history`,
 
             {
 
-                headers:{
+                headers: {
 
-                    Authorization:`Bearer ${token}`
+                    Authorization: `Bearer ${token}`
 
                 }
 
@@ -678,17 +678,17 @@ async function loadHistory(){
 
         );
 
-        const result=await response.json();
+        const result = await response.json();
 
-        if(!result.success){
+        if (!result.success) {
 
             throw new Error(result.message);
 
         }
 
-        if(result.data.length===0){
+        if (result.data.length === 0) {
 
-            historyContent.innerHTML=`
+            historyContent.innerHTML = `
 
                 <p class="history-loading">
 
@@ -702,50 +702,65 @@ async function loadHistory(){
 
         }
 
-        historyContent.innerHTML=result.data.map((item,index)=>`
+        historyContent.innerHTML = result.data.map((item, index) => `
 
-            <div class="history-item">
+            <div class="history-card">
 
                 <div class="history-number">
 
-                    ${index+1}
+                    #${index + 1}
 
                 </div>
 
-                <div class="history-body">
+                <div class="history-detail">
 
                     <div class="history-date">
 
-                        <i class="fa-solid fa-calendar-days"></i>
+                        <i class="fa-solid fa-calendar"></i>
 
-                        ${new Date(item.createdAt).toLocaleString("id-ID")}
+                        ${new Date(item.createdAt).toLocaleDateString("id-ID", {
+
+                            day: "numeric",
+
+                            month: "long",
+
+                            year: "numeric"
+
+                        })}
+
+                        &nbsp;&mdash;&nbsp;
+
+                        ${new Date(item.createdAt).toLocaleTimeString("id-ID", {
+
+                            hour: "2-digit",
+
+                            minute: "2-digit"
+
+                        })}
 
                     </div>
 
-                    <div>
+                    <div class="history-info">
 
                         💧 Air :
                         <b>${item.air}%</b>
 
-                    </div>
-
-                    <div>
+                        &nbsp;&nbsp;|&nbsp;&nbsp;
 
                         🌡️ Suhu :
                         <b>${item.suhu}°C</b>
 
-                    </div>
-
-                    <div>
+                        &nbsp;&nbsp;|&nbsp;&nbsp;
 
                         ☀️ Cahaya :
                         <b>${item.cahaya}%</b>
 
                     </div>
 
-                    <div>
+                    <div class="history-status">
 
                         🌱 Status :
+
                         <b>${item.hasil}</b>
 
                     </div>
@@ -758,11 +773,11 @@ async function loadHistory(){
 
     }
 
-    catch(error){
+    catch (error) {
 
         console.error(error);
 
-        historyContent.innerHTML=`
+        historyContent.innerHTML = `
 
             <p class="history-loading">
 
