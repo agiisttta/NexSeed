@@ -1,6 +1,7 @@
 /* Google font */
 
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");/* Reset */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+/* Reset */
 
 * {
   margin: 0;
@@ -18,7 +19,8 @@ body {
   color: #333;
   line-height: 1.6;
   overflow-x: hidden;
-}/* Navbar */
+}
+/* Navbar */
 
 nav {
   width: 100%;
@@ -117,7 +119,8 @@ nav ul li.active a {
 .profile button:hover {
   background: #b71c1c;
   transform: scale(1.1);
-}/* Hero */
+}
+/* Hero */
 
 .hero {
   position: relative;
@@ -128,7 +131,8 @@ nav ul li.active a {
   color: #fff;
 
   background: linear-gradient(135deg, #a3cfa6 0%, #43a047 45%, #66bb6a 100%);
-}/* Efek cahaya */
+}
+/* Efek cahaya */
 
 .hero::before {
   content: "";
@@ -145,7 +149,8 @@ nav ul li.active a {
   background: rgba(255, 255, 255, 0.08);
 
   filter: blur(10px);
-}/* Efek lingkaran kanan */
+}
+/* Efek lingkaran kanan */
 
 .hero::after {
   content: "";
@@ -228,13 +233,15 @@ nav ul li.active a {
   100% {
     transform: translateY(0px) rotate(0deg);
   }
-}/* Quiz container */
+}
+/* Quiz container */
 
 .quiz-container {
   width: 95%;
   max-width: 1450px;
   margin: 45px auto;
-}/* Info card */
+}
+/* Info card */
 
 .info-card {
   background: #fff;
@@ -277,7 +284,8 @@ nav ul li.active a {
 .info-item p {
   color: #666;
   font-size: 15px;
-}/* Progress */
+}
+/* Progress */
 
 .progress-card {
   background: #fff;
@@ -308,7 +316,8 @@ nav ul li.active a {
   height: 100%;
   background: linear-gradient(90deg, #43a047, #81c784);
   transition: 0.5s;
-}/* Petunjuk */
+}
+/* Petunjuk */
 
 .instruction {
   margin-top: 30px;
@@ -332,11 +341,13 @@ nav ul li.active a {
   margin-bottom: 8px;
   color: #555;
   font-size: 15px;
-}/* Quiz content */
+}
+/* Quiz content */
 
 .quiz-content {
   width: 100%;
-}/* Card soal */
+}
+/* Card soal */
 
 .question {
   background: #fff;
@@ -350,7 +361,8 @@ nav ul li.active a {
 .question:hover {
   transform: translateY(-4px);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
-}/* Nomor soal */
+}
+/* Nomor soal */
 
 .question-number {
   width: 55px;
@@ -364,14 +376,16 @@ nav ul li.active a {
   font-size: 22px;
   font-weight: 700;
   margin-bottom: 20px;
-}/* Judul soal */
+}
+/* Judul soal */
 
 .question h3 {
   font-size: 23px;
   color: #2e7d32;
   margin-bottom: 25px;
   line-height: 1.8;
-}/* Gambar soal */
+}
+/* Gambar soal */
 
 .question img {
   width: 100%;
@@ -381,44 +395,53 @@ nav ul li.active a {
   border-radius: 15px;
   border: 4px solid #edf7ed;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-}/* Pilihan jawaban */
+}
+/* Pilihan jawaban */
 
-.question label {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  padding: 18px 20px;
-  margin-bottom: 15px;
-  background: #f8faf8;
-  border: 2px solid transparent;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: 0.3s;
-  font-size: 16px;
+.question label{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    width:100%;
+    padding:18px 20px;
+    margin:0 0 15px;
+    background:#f8faf8;
+    border:2px solid #f0f0f0;
+    border-radius:12px;
+    cursor:pointer;
+    transition:.3s;
 }
 
-.question label:hover {
-  background: #e8f5e9;
-  border-color: #66bb6a;
-  transform: translateX(6px);
-}/* Radio */
+.question label:hover{
+    background:#e8f5e9;
+    border-color:#66bb6a;
+}
+/* Radio */
 
-.question input[type="radio"] {
-  width: 20px;
-  height: 20px;
-  accent-color: #2e7d32;
-}/* Jawaban dipilih */
+.question input[type="radio"]{
+
+    flex-shrink:0;
+    width:20px;
+    height:20px;
+    accent-color:#2e7d32;
+    cursor:pointer;
+
+}
+
+/* Jawaban dipilih */
 
 .question label:has(input:checked) {
   background: #e8f5e9;
   border-color: #2e7d32;
-}/* Garis pembatas */
+}
+/* Garis pembatas */
 
 .question hr {
   border: none;
   border-top: 1px solid #e5e5e5;
   margin: 30px 0;
-}/* Riwayat kuis */
+}
+/* Riwayat kuis */
 
 .history-section {
   background: #fff;
@@ -511,7 +534,8 @@ nav ul li.active a {
   font-weight: 700;
   color: #2e7d32;
   margin-left: 20px;
-}/* Responsive tablet */
+}
+/* Responsive tablet */
 
 @media (max-width: 768px) {
   nav {
@@ -598,7 +622,8 @@ nav ul li.active a {
   .history-score {
     font-size: 20px;
   }
-}/* Responsive hp kecil */
+}
+/* Responsive hp kecil */
 
 @media (max-width: 480px) {
   .hero h1 {
@@ -667,7 +692,8 @@ nav ul li.active a {
   color: #2e7d32;
   font-size: 24px;
   margin-bottom: 20px;
-}/* Lingkaran nilai */
+}
+/* Lingkaran nilai */
 
 .score-circle {
   width: 170px;
@@ -685,7 +711,8 @@ nav ul li.active a {
 .score-circle span {
   font-size: 56px;
   font-weight: bold;
-}/* Predikat */
+}
+/* Predikat */
 
 #grade {
   margin-top: 20px;
@@ -698,7 +725,8 @@ nav ul li.active a {
   margin-top: 15px;
   color: #666;
   font-size: 18px;
-}/* Informasi nilai */
+}
+/* Informasi nilai */
 
 .score-detail {
   margin-top: 35px;
@@ -721,7 +749,8 @@ nav ul li.active a {
 .score-item p {
   font-size: 22px;
   font-weight: 600;
-}/* Pembahasan */
+}
+/* Pembahasan */
 
 .discussion {
   display: none;
@@ -768,7 +797,8 @@ nav ul li.active a {
 .wrong {
   color: #e53935;
   font-weight: 600;
-}/* Footer */
+}
+/* Footer */
 
 footer {
   margin-top: 70px;
@@ -781,7 +811,8 @@ footer {
 footer p {
   font-size: 15px;
   letter-spacing: 0.5px;
-}/* Animasi */
+}
+/* Animasi */
 
 .card,
 .question,
@@ -800,7 +831,8 @@ footer p {
     opacity: 1;
     transform: translateY(0);
   }
-}/* Scrollbar */
+}
+/* Scrollbar */
 
 ::-webkit-scrollbar {
   width: 10px;
@@ -817,7 +849,8 @@ footer p {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #2e7d32;
-}/* Responsive tablet */
+}
+/* Responsive tablet */
 
 @media (max-width: 992px) {
   nav {
@@ -848,7 +881,8 @@ footer p {
   .score-detail {
     grid-template-columns: 1fr;
   }
-}/* Responsive mobile */
+}
+/* Responsive mobile */
 
 @media (max-width: 768px) {
   nav {
@@ -909,7 +943,8 @@ footer p {
   .score-circle span {
     font-size: 42px;
   }
-}/* Responsive hp kecil */
+}
+/* Responsive hp kecil */
 
 @media (max-width: 480px) {
   .hero h1 {
