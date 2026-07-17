@@ -3,9 +3,11 @@
    NEXSEED
 ===================================================== */
 
-// Element
-
 const BASE_URL = `${CONFIG.API_URL}/api/simulation`;
+
+/* =====================================================
+   ELEMENT
+===================================================== */
 
 const air = document.getElementById("air");
 const temp = document.getElementById("temp");
@@ -31,105 +33,168 @@ const status = document.getElementById("status");
 const part = document.getElementById("part");
 
 const condition = document.getElementById("condition");
-
 const conditionText = document.getElementById("conditionText");
 
 const description = document.getElementById("description");
-
 const conclusion = document.getElementById("conclusion");
 
 const historyContent = document.getElementById("historyContent");
 
-let userId = localStorage.getItem("userId");
-let username = localStorage.getItem("username");
-let token = localStorage.getItem("token");
+/* =====================================================
+   USER
+===================================================== */
 
-// Cek autentikasi pengguna
+const token = localStorage.getItem("token");
+const userId = localStorage.getItem("userId");
+const username = localStorage.getItem("nama");
+
+/* =====================================================
+   AUTH
+===================================================== */
+
 function checkAuth() {
-  if (!token) {
-    window.location.href = "login.html";
-  }
+
+    if (!token) {
+
+        alert("Silakan login terlebih dahulu.");
+
+        window.location.href = "login.html";
+
+        return;
+
+    }
+
 }
 
 checkAuth();
 
-// Variable
+/* =====================================================
+   VARIABLE
+===================================================== */
 
 let timer = null;
 
 let currentDay = 0;
 
-// Update slider
+/* =====================================================
+   UPDATE SLIDER
+===================================================== */
 
 function updateSlider() {
-  let airNum = Number(air.value);
 
-  let tempNum = Number(temp.value);
+    const airNum = Number(air.value);
 
-  let lightNum = Number(light.value);
+    const tempNum = Number(temp.value);
 
-  // Air
+    const lightNum = Number(light.value);
 
-  if (airNum <= 30) {
-    airValue.innerHTML = airNum + "% (Kering)";
-  } else if (airNum <= 70) {
-    airValue.innerHTML = airNum + "% (Optimal)";
-  } else {
-    airValue.innerHTML = airNum + "% (Berlebih)";
-  }
+    /* ==========================
+       AIR
+    ========================== */
 
-  // Suhu
+    if (airNum < 30) {
 
-  tempValue.innerHTML = tempNum + "°C";
+        airValue.innerHTML = `${airNum}% (Kering)`;
 
-  if (tempNum <= 10) {
-    tempStatus.innerHTML = "❄️ Dingin";
-  } else if (tempNum <= 40) {
-    tempStatus.innerHTML = "🌡️ Normal";
-  } else {
-    tempStatus.innerHTML = "🔥 Panas";
-  }
+    }
 
-  // Cahaya
+    else if (airNum <= 75) {
 
-  if (lightNum <= 30) {
-    lightValue.innerHTML = lightNum + "% (Gelap)";
-  } else if (lightNum <= 70) {
-    lightValue.innerHTML = lightNum + "% (Redup)";
-  } else {
-    lightValue.innerHTML = lightNum + "% (Terang)";
-  }
+        airValue.innerHTML = `${airNum}% (Optimal)`;
 
-  updateSky();
+    }
+
+    else {
+
+        airValue.innerHTML = `${airNum}% (Berlebih)`;
+
+    }
+
+    /* ==========================
+       SUHU
+    ========================== */
+
+    tempValue.innerHTML = `${tempNum}°C`;
+
+    if (tempNum < 15) {
+
+        tempStatus.innerHTML = "❄️ Dingin";
+
+    }
+
+    else if (tempNum <= 35) {
+
+        tempStatus.innerHTML = "🌡️ Optimal";
+
+    }
+
+    else {
+
+        tempStatus.innerHTML = "🔥 Terlalu Panas";
+
+    }
+
+    /* ==========================
+       CAHAYA
+    ========================== */
+
+    if (lightNum < 50) {
+
+        lightValue.innerHTML = `${lightNum}% (Redup)`;
+
+        lightStatus.innerHTML = "🌙 Redup";
+
+    }
+
+    else {
+
+        lightValue.innerHTML = `${lightNum}% (Terang)`;
+
+        lightStatus.innerHTML = "☀️ Terang";
+
+    }
+
+    updateSky();
+
 }
 
-// Update langit
+/* =====================================================
+   UPDATE LANGIT
+===================================================== */
 
 function updateSky() {
-  const sky = document.querySelector(".sky");
 
-  const sun = document.querySelector(".sun");
+    const sky = document.querySelector(".sky");
 
-  if (!sky || !sun) return;
+    const sun = document.querySelector(".sun");
 
-  let value = Number(light.value);
+    if (!sky || !sun) return;
 
-  if (value <= 30) {
-    sky.style.background = "linear-gradient(to bottom,#1d3557,#34495e)";
+    const value = Number(light.value);
 
-    sun.style.display = "none";
-  } else if (value <= 70) {
-    sky.style.background = "linear-gradient(to bottom,#9ecae1,#d9edf7)";
+    if (value < 50) {
 
-    sun.style.display = "block";
-  } else {
-    sky.style.background = "linear-gradient(to bottom,#87ceeb,#d9f3ff)";
+        sky.style.background =
+            "linear-gradient(to bottom,#374151,#6b7280)";
 
-    sun.style.display = "block";
-  }
+        sun.style.display = "none";
+
+    }
+
+    else {
+
+        sky.style.background =
+            "linear-gradient(to bottom,#87CEEB,#D9F3FF)";
+
+        sun.style.display = "block";
+
+    }
+
 }
 
-// Event slider
+/* =====================================================
+   EVENT SLIDER
+===================================================== */
 
 air.addEventListener("input", updateSlider);
 
@@ -137,322 +202,372 @@ temp.addEventListener("input", updateSlider);
 
 light.addEventListener("input", updateSlider);
 
-// Load awal
+/* =====================================================
+   LOAD PERTAMA
+===================================================== */
 
 updateSlider();
 
-// Reset class tanaman
+/* =====================================================
+   RESET TANAMAN
+===================================================== */
 
 function clearPlant() {
-  plant.className = "";
+
+    plant.className = "";
+
 }
 
-// Reset hasil
+/* =====================================================
+   RESET HASIL
+===================================================== */
 
 function resetResult() {
-  status.innerHTML = "Siap";
 
-  part.innerHTML = "-";
+    status.innerHTML = "Siap";
 
-  condition.innerHTML = "🌱 Siap disimulasikan";
+    part.innerHTML = "-";
 
-  conditionText.innerHTML = "Menunggu simulasi dijalankan.";
+    condition.innerHTML = "🌱 Siap Disimulasikan";
 
-  description.innerHTML =
-    "Atur kadar air, suhu, dan intensitas cahaya kemudian tekan tombol Jalankan.";
+    conditionText.innerHTML =
+        "Menunggu simulasi dijalankan.";
 
-  conclusion.innerHTML = "-";
+    description.innerHTML =
+        "Atur kadar air, suhu dan cahaya kemudian tekan tombol Jalankan.";
+
+    conclusion.innerHTML = "-";
+
 }
 
-// Update progress
+/* =====================================================
+   UPDATE PROGRESS
+===================================================== */
 
 function updateProgress(hari) {
-  day.innerHTML = hari;
 
-  progressFill.style.width = hari * 20 + "%";
+    day.innerHTML = hari;
+
+    progressFill.style.width = `${hari * 20}%`;
+
 }
 
-// Hasil simulasi
+/* =====================================================
+   HASIL SIMULASI
+===================================================== */
 
 function hasil(a, t, c) {
-  clearPlant();
 
-  /*
-        PRIORITAS:
-        1. Suhu ekstrem
-        2. Air ekstrem
-        3. Cahaya
-        4. Optimal
-    */
+    clearPlant();
 
-  // Suhu terlalu dingin
+    /* ====================================
+       PRIORITAS
+       1. SUHU
+       2. AIR
+       3. CAHAYA
+       4. NORMAL
+    ==================================== */
 
-  if (t === 0) {
-    plant.classList.add("dormant");
 
-    status.innerHTML = "❄️ Dormansi";
+    /* ====================================
+       SUHU > 35°C
+    ==================================== */
 
-    part.innerHTML = "-";
+    if (t > 35) {
 
-    condition.innerHTML = "❄️ Suhu Terlalu Rendah";
+        plant.classList.add("dead");
 
-    conditionText.innerHTML = "Aktivitas metabolisme benih berhenti sementara.";
+        status.innerHTML = "🔥 Mati";
 
-    description.innerHTML =
-      "Suhu rendah menyebabkan kerja enzim terhambat sehingga proses perkecambahan tidak berlangsung.";
+        part.innerHTML = "Embrio";
 
-    conclusion.innerHTML =
-      "Benih tetap hidup tetapi tidak mengalami pertumbuhan.";
+        condition.innerHTML =
+            "🔥 Suhu Terlalu Tinggi";
 
-    return;
-  }
+        conditionText.innerHTML =
+            "Suhu melebihi batas optimal.";
 
-  // Suhu terlalu panas
+        description.innerHTML =
+            "Enzim mengalami kerusakan sehingga embrio tidak mampu berkembang.";
 
-  if (t === 50) {
-    plant.classList.add("dead");
+        conclusion.innerHTML =
+            "Benih mati dan gagal berkecambah.";
 
-    status.innerHTML = "🔥 Mati";
+        return;
 
-    part.innerHTML = "Embrio";
+    }
 
-    condition.innerHTML = "🔥 Suhu Terlalu Tinggi";
 
-    conditionText.innerHTML = "Jaringan embrio mengalami kerusakan.";
+    /* ====================================
+       AIR < 30%
+    ==================================== */
 
-    description.innerHTML =
-      "Suhu ekstrem menyebabkan denaturasi protein dan enzim sehingga sel tidak mampu berkembang.";
+    if (a < 30) {
 
-    conclusion.innerHTML = "Perkecambahan gagal.";
+        plant.classList.add("dry");
 
-    return;
-  }
+        status.innerHTML =
+            "🌵 Kering";
 
-  // Air kering
+        part.innerHTML =
+            "Benih";
 
-  if (a === 0) {
-    plant.classList.add("dry");
+        condition.innerHTML =
+            "💧 Air Terlalu Sedikit";
 
-    status.innerHTML = "❌ Tidak Berkecambah";
+        conditionText.innerHTML =
+            "Benih gagal melakukan imbibisi.";
 
-    part.innerHTML = "-";
+        description.innerHTML =
+            "Air tidak mencukupi untuk mengaktifkan metabolisme embrio.";
 
-    condition.innerHTML = "🌵 Kekurangan Air";
+        conclusion.innerHTML =
+            "Perkecambahan tidak terjadi.";
 
-    conditionText.innerHTML = "Benih tidak mengalami proses imbibisi.";
+        return;
 
-    description.innerHTML =
-      "Air dibutuhkan untuk mengaktifkan enzim dan memulai metabolisme embrio.";
+    }
 
-    conclusion.innerHTML = "Perkecambahan gagal karena kekurangan air.";
 
-    return;
-  }
+    /* ====================================
+       AIR > 75%
+    ==================================== */
 
-  // Air berlebihan
+    if (a > 75) {
 
-  if (a === 100) {
-    plant.classList.add("rotten");
+        plant.classList.add("rotten");
 
-    status.innerHTML = "🦠 Benih Busuk";
+        status.innerHTML =
+            "🦠 Membusuk";
 
-    part.innerHTML = "Benih";
+        part.innerHTML =
+            "Benih";
 
-    condition.innerHTML = "💧 Air Berlebihan";
+        condition.innerHTML =
+            "💦 Air Berlebihan";
 
-    conditionText.innerHTML =
-      "Benih kekurangan oksigen akibat tanah terlalu basah.";
+        conditionText.innerHTML =
+            "Benih kekurangan oksigen.";
 
-    description.innerHTML =
-      "Kelebihan air menghambat respirasi sehingga benih mudah mengalami pembusukan.";
+        description.innerHTML =
+            "Media terlalu basah sehingga respirasi terganggu dan benih membusuk.";
 
-    conclusion.innerHTML = "Perkecambahan gagal.";
+        conclusion.innerHTML =
+            "Perkecambahan gagal.";
 
-    return;
-  }
+        return;
 
-  // Cahaya gelap
+    }
 
-  if (c === 0) {
-    plant.classList.add("etiolation");
 
-    status.innerHTML = "🌱 Etiolasi";
+    /* ====================================
+       CAHAYA < 50%
+    ==================================== */
 
-    part.innerHTML = "Batang";
+    if (c < 50) {
 
-    condition.innerHTML = "🌙 Kekurangan Cahaya";
+        plant.classList.add("dead");
 
-    conditionText.innerHTML =
-      "Batang tumbuh panjang tetapi daun kecil dan pucat.";
+        status.innerHTML =
+            "🌑 Mati";
 
-    description.innerHTML =
-      "Tanaman mengalami etiolasi karena kekurangan cahaya untuk pembentukan klorofil.";
+        part.innerHTML =
+            "Daun";
 
-    conclusion.innerHTML = "Tanaman hidup tetapi pertumbuhan tidak normal.";
+        condition.innerHTML =
+            "🌙 Cahaya Kurang";
 
-    return;
-  }
+        conditionText.innerHTML =
+            "Fotosintesis tidak berlangsung dengan baik.";
 
-  // Cahaya redup
+        description.innerHTML =
+            "Intensitas cahaya terlalu rendah sehingga tanaman tidak mampu menghasilkan energi.";
 
-  if (c === 50) {
+        conclusion.innerHTML =
+            "Tanaman mati.";
+
+        return;
+
+    }
+
+
+    /* ====================================
+       KONDISI OPTIMAL
+    ==================================== */
+
     plant.classList.add("grow");
 
-    status.innerHTML = "🌿 Tumbuh";
+    status.innerHTML =
+        "🌱 Tumbuh Sehat";
 
-    part.innerHTML = "Radikula";
+    part.innerHTML =
+        "Akar, Batang, Daun";
 
-    condition.innerHTML = "⛅ Pertumbuhan Sedang";
+    condition.innerHTML =
+        "✅ Kondisi Optimal";
 
-    conditionText.innerHTML = "Kecambah mulai berkembang namun belum maksimal.";
+    conditionText.innerHTML =
+        "Air, suhu dan cahaya sesuai.";
 
     description.innerHTML =
-      "Fotosintesis berlangsung tetapi energi cahaya masih terbatas.";
+        "Benih memperoleh air, suhu dan cahaya yang cukup sehingga proses perkecambahan berlangsung normal.";
 
-    conclusion.innerHTML = "Perkecambahan berhasil tetapi kurang optimal.";
+    conclusion.innerHTML =
+        "Perkecambahan berhasil dengan baik.";
 
-    return;
-  }
-
-  // Kondisi ideal
-
-  plant.classList.add("grow");
-
-  status.innerHTML = "🌱 Tumbuh Sehat";
-
-  part.innerHTML = "Akar, Batang, dan Daun";
-
-  condition.innerHTML = "✅ Kondisi Optimal";
-
-  conditionText.innerHTML = "Akar, batang, dan daun berkembang dengan baik.";
-
-  description.innerHTML =
-    "Air, suhu, dan cahaya berada pada kondisi ideal sehingga proses perkecambahan berjalan optimal.";
-
-  conclusion.innerHTML = "Perkecambahan berhasil dengan baik.";
 }
 
-// Jalankan simulasi
+/* =====================================================
+   JALANKAN SIMULASI
+===================================================== */
 
-startBtn.addEventListener("click", function () {
-  // Jika masih berjalan
-  if (timer) {
-    return;
-  }
+startBtn.addEventListener("click", () => {
 
-  const nilaiAir = Number(air.value);
+    if (timer) return;
 
-  const nilaiTemp = Number(temp.value);
+    const nilaiAir = Number(air.value);
+    const nilaiTemp = Number(temp.value);
+    const nilaiLight = Number(light.value);
 
-  const nilaiLight = Number(light.value);
+    clearPlant();
 
-  // Bersihkan tanaman sebelumnya
+    hasil(
+        nilaiAir,
+        nilaiTemp,
+        nilaiLight
+    );
 
-  clearPlant();
+    currentDay = 0;
 
-  // Tampilkan hasil kondisi
+    updateProgress(0);
 
-  hasil(nilaiAir, nilaiTemp, nilaiLight);
+    startBtn.disabled = true;
 
-  currentDay = 0;
-
-  updateProgress(0);
-
-  startBtn.disabled = true;
-
-  startBtn.innerHTML = `
-
-    <i class="fa-solid fa-spinner fa-spin"></i>
-
-    Simulasi Berjalan
-
+    startBtn.innerHTML = `
+        <i class="fa-solid fa-spinner fa-spin"></i>
+        Simulasi Berjalan
     `;
 
-  // Simulasi 5 hari
+    timer = setInterval(() => {
 
-  timer = setInterval(function () {
-    currentDay++;
+        currentDay++;
 
-    updateProgress(currentDay);
+        updateProgress(currentDay);
 
-    if (currentDay >= 5) {
-      clearInterval(timer);
+        if (currentDay >= 5) {
 
-      timer = null;
+            clearInterval(timer);
 
-      startBtn.disabled = false;
+            timer = null;
 
-      startBtn.innerHTML = `
+            startBtn.disabled = false;
 
-            <i class="fa-solid fa-play"></i>
-
-            Jalankan
-
+            startBtn.innerHTML = `
+                <i class="fa-solid fa-play"></i>
+                Jalankan
             `;
-            
-      // Tampilkan tombol simpan setelah simulasi selesai
-      saveBtn.style.display = "flex";
+
+            saveBtn.style.display = "flex";
+
+        }
+
+    },1000);
+
+});
+
+
+/* =====================================================
+   RESET SIMULASI
+===================================================== */
+
+resetBtn.addEventListener("click",()=>{
+
+    if(timer){
+
+        clearInterval(timer);
+
+        timer = null;
+
     }
-  }, 1000);
-});
 
-// Reset simulasi
+    air.value = 50;
 
-resetBtn.addEventListener("click", function () {
-  // Hentikan timer
+    temp.value = 25;
 
-  if (timer) {
-    clearInterval(timer);
+    light.value = 100;
 
-    timer = null;
-  }
+    updateSlider();
 
-  // Kembalikan slider
+    clearPlant();
 
-  air.value = 50;
+    currentDay = 0;
 
-  temp.value = 25;
+    updateProgress(0);
 
-  light.value = 100;
+    resetResult();
 
-  // Update tampilan slider
+    startBtn.disabled = false;
 
-  updateSlider();
-
-  // Reset tanaman
-
-  clearPlant();
-
-  // Reset progress
-
-  currentDay = 0;
-
-  updateProgress(0);
-
-  // Reset hasil
-
-  resetResult();
-
-  // Aktifkan tombol
-
-  startBtn.disabled = false;
-
-  startBtn.innerHTML = `
-
-
-    <i class="fa-solid fa-play"></i>
-
-
-    Jalankan
-
-
+    startBtn.innerHTML = `
+        <i class="fa-solid fa-play"></i>
+        Jalankan
     `;
-    
-  // Sembunyikan tombol simpan saat di-reset
-  saveBtn.style.display = "none";
+
+    saveBtn.style.display = "none";
+
 });
 
-// Initial load
+
+/* =====================================================
+   TOMBOL SIMPAN
+===================================================== */
+
+saveBtn.addEventListener("click",async()=>{
+
+    const originalText = saveBtn.innerHTML;
+
+    saveBtn.disabled = true;
+
+    saveBtn.innerHTML = `
+        <i class="fa-solid fa-spinner fa-spin"></i>
+        Menyimpan...
+    `;
+
+    await saveSimulationResult(
+
+        Number(air.value),
+
+        Number(temp.value),
+
+        Number(light.value),
+
+        status.innerHTML,
+
+        conditionText.innerHTML
+
+    );
+
+    saveBtn.innerHTML = `
+        <i class="fa-solid fa-check"></i>
+        Berhasil
+    `;
+
+    setTimeout(()=>{
+
+        saveBtn.disabled = false;
+
+        saveBtn.style.display = "none";
+
+        saveBtn.innerHTML = originalText;
+
+    },2000);
+
+});
+
+
+/* =====================================================
+   LOAD PERTAMA
+===================================================== */
 
 updateSlider();
 
@@ -462,112 +577,201 @@ resetResult();
 
 loadHistory();
 
-// Event listener untuk tombol simpan
-saveBtn.addEventListener("click", async () => {
-  const originalText = saveBtn.innerHTML;
-  saveBtn.disabled = true;
-  saveBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Menyimpan...`;
+/* =====================================================
+   SIMPAN HASIL SIMULASI
+===================================================== */
 
-  const nilaiAir = Number(air.value);
-  const nilaiTemp = Number(temp.value);
-  const nilaiLight = Number(light.value);
-  const statusText = status.innerHTML;
-  const conditionStr = conditionText.innerHTML;
-
-  await saveSimulationResult(nilaiAir, nilaiTemp, nilaiLight, statusText, conditionStr);
-
-  saveBtn.innerHTML = `<i class="fa-solid fa-check"></i> Tersimpan`;
-  setTimeout(() => {
-    saveBtn.disabled = false;
-    saveBtn.innerHTML = originalText;
-    saveBtn.style.display = "none"; // Sembunyikan setelah berhasil menyimpan
-  }, 2000);
-});
-
-// Save simulation result to backend
 async function saveSimulationResult(
-  water,
-  temperature,
-  light,
-  resultText,
-  description,
-) {
-  try {
-    const response = await fetch(`${BASE_URL}/save`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify({
-        air: water,
-        suhu: temperature,
-        cahaya: light,
-        hasil: resultText,
-        keterangan: description,
-      }),
-    });
+    airValue,
+    suhuValue,
+    cahayaValue,
+    hasilText,
+    keteranganText
+){
 
-    const data = await response.json();
-    if (response.ok) {
-      console.log("Simulation result saved:", data);
-      loadHistory(); // Reload history after saving
-    } else {
-      console.error("Failed to save simulation result:", data.message);
+    try{
+
+        const response = await fetch(
+            `${BASE_URL}/save`,
+            {
+
+                method:"POST",
+
+                headers:{
+                    "Content-Type":"application/json",
+                    Authorization:`Bearer ${token}`
+                },
+
+                body:JSON.stringify({
+
+                    air:airValue,
+
+                    suhu:suhuValue,
+
+                    cahaya:cahayaValue,
+
+                    hasil:hasilText,
+
+                    keterangan:keteranganText
+
+                })
+
+            }
+        );
+
+        const data = await response.json();
+
+        if(!response.ok){
+
+            throw new Error(data.message);
+
+        }
+
+        loadHistory();
+
     }
-  } catch (error) {
-    console.error("Error saving simulation result:", error);
-  }
+
+    catch(error){
+
+        console.error(error);
+
+        alert("Gagal menyimpan hasil simulasi.");
+
+    }
+
 }
 
-// Load simulation history
-async function loadHistory() {
-  historyContent.innerHTML = `<p class="history-loading"><i class="fa-solid fa-spinner fa-spin"></i> Memuat riwayat...</p>`;
-  try {
-    const response = await fetch(`${BASE_URL}/history`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    const data = await response.json();
 
-    if (data.success) {
-      if (data.data.length === 0) {
-        historyContent.innerHTML = `<p class="history-loading">Belum ada riwayat simulasi.</p>`;
-        return;
-      }
+/* =====================================================
+   LOAD RIWAYAT
+===================================================== */
 
-      historyContent.innerHTML = `
-                <div class="history-list">
-                    ${data.data
-                      .map(
-                        (item, index) => `
-                        <div class="history-item" style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 10px; border-left: 4px solid var(--primary); display: flex; align-items: flex-start; gap: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
-                            <span class="history-rank" style="font-weight: 700; color: var(--primary); font-size: 1.1rem; min-width: 25px;">${index + 1}.</span>
-                            <div class="history-info" style="display: flex; flex-direction: column; gap: 5px; width: 100%;">
-                                <span class="history-date" style="color: #6c757d; font-size: 0.85rem; display: flex; align-items: center; gap: 6px;">
-                                    <i class="fa-solid fa-calendar-days"></i>
-                                    ${new Date(item.createdAt).toLocaleDateString("id-ID", { year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit" })}
-                                </span>
-                                <span class="history-detail" style="font-size: 0.95rem;">
-                                    Kondisi: <b>Air ${item.air}, Suhu ${item.suhu}, Cahaya ${item.cahaya}</b>
-                                </span>
-                                <span class="history-detail" style="font-size: 0.95rem;">
-                                    Status: <b>${item.hasil}</b>
-                                </span>
-                            </div>
-                        </div>
-                    `,
-                      )
-                      .join("")}
-                </div>
+async function loadHistory(){
+
+    historyContent.innerHTML=`
+
+        <p class="history-loading">
+
+            <i class="fa-solid fa-spinner fa-spin"></i>
+
+            Memuat Riwayat...
+
+        </p>
+
+    `;
+
+    try{
+
+        const response=await fetch(
+
+            `${BASE_URL}/history`,
+
+            {
+
+                headers:{
+
+                    Authorization:`Bearer ${token}`
+
+                }
+
+            }
+
+        );
+
+        const result=await response.json();
+
+        if(!result.success){
+
+            throw new Error(result.message);
+
+        }
+
+        if(result.data.length===0){
+
+            historyContent.innerHTML=`
+
+                <p class="history-loading">
+
+                    Belum ada riwayat simulasi.
+
+                </p>
+
             `;
-    } else {
-      historyContent.innerHTML = `<p class="history-loading">Gagal memuat riwayat</p>`;
-      console.error("Failed to load history:", data.message);
+
+            return;
+
+        }
+
+        historyContent.innerHTML=result.data.map((item,index)=>`
+
+            <div class="history-item">
+
+                <div class="history-number">
+
+                    ${index+1}
+
+                </div>
+
+                <div class="history-body">
+
+                    <div class="history-date">
+
+                        <i class="fa-solid fa-calendar-days"></i>
+
+                        ${new Date(item.createdAt).toLocaleString("id-ID")}
+
+                    </div>
+
+                    <div>
+
+                        💧 Air :
+                        <b>${item.air}%</b>
+
+                    </div>
+
+                    <div>
+
+                        🌡️ Suhu :
+                        <b>${item.suhu}°C</b>
+
+                    </div>
+
+                    <div>
+
+                        ☀️ Cahaya :
+                        <b>${item.cahaya}%</b>
+
+                    </div>
+
+                    <div>
+
+                        🌱 Status :
+                        <b>${item.hasil}</b>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        `).join("");
+
     }
-  } catch (error) {
-    historyContent.innerHTML = `<p class="history-loading">Error memuat riwayat.</p>`;
-    console.error("Error loading history:", error);
-  }
+
+    catch(error){
+
+        console.error(error);
+
+        historyContent.innerHTML=`
+
+            <p class="history-loading">
+
+                Gagal memuat riwayat.
+
+            </p>
+
+        `;
+
+    }
+
 }
